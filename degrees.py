@@ -97,29 +97,27 @@ def shortest_path(source, target):
 
     # Create a queue for BFS
     queue = deque()
-    # Enqueue the source node with an empty path
     queue.append((source, []))
-
-    # Set to keep track of visited persons
+    # visited path
     visited = set()
 
     # BFS
     while queue:
         person, path = queue.popleft()
-        # Check if the current person is the target
+        # check if the current person is the target
         if person == target:
             return path
-        # Mark the current person as visited
+        # mark current person as visited
         visited.add(person)
-        # Get the neighbors of the current person
+        # neighbor of the current person
         neighbors = neighbors_for_person(person)
         for movie, neighbor in neighbors:
-            # Check if the neighbor has not been visited
+            # check if the neighbor has not been visited
             if neighbor not in visited:
-                # Enqueue the neighbor with the updated path
+                # enqueue the neighbor with the updated path
                 queue.append((neighbor, path + [(movie, neighbor)]))
 
-    # If no path is found, return None
+    # if no path found, return None
     return None
 
 
