@@ -103,7 +103,7 @@ def shortest_path(source, target):
     # Set to keep track of visited persons
     visited = set()
 
-    # Perform BFS
+    # BFS
     while queue:
         person, path = queue.popleft()
         # Check if the current person is the target
